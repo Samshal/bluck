@@ -1,0 +1,33 @@
+{
+    "name": "samshal/bluck",
+    "type":"project",
+    "description": "Project B.L.U.C.K",
+    "authors": [
+        {
+            "name": "Samshal",
+            "email": "samueladeshina73@gmail.com"
+        }
+    ],
+    "config":{
+        "platform":{
+            "php":"7.0"
+        }
+    },
+    "repositories":[
+        {
+            "type":"vcs",
+            "url":"https://github.com/emmetblue/emmet-blue"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.4",
+        "emmetblue/emmet-blue":"dev-master"
+    },
+    "autoload":{
+        "psr-4":{
+            "Bluck\\":"./src"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable":true
+}

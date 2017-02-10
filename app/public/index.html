@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="no-js lt-ie10" lang="en">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+	<head>
+        <meta charset="utf-8">
+        <base href="/">
+
+        <title>MMM Florida</title>
+
+        <meta name="description" content="MMM Florida, Yet another MMM">
+        <meta name="author" content="The Bluck Team">
+        <meta name="robots" content="noindex, nofollow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/plugins.css">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/themes.css">
+        <link rel="stylesheet" href="assets/css/custom.css">
+
+        <script src="assets/js/vendor/modernizr.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 		
+    		<script src="assets/js/jquery.knob.js"></script>
+    		<script src="assets/js/jquery.ccountdown.js"></script>
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/app.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+        <script src="assets/angular/app.js"></script>
+    </head>
+   	<body ng-app="Bluck" ng-controller="coreController">
+   		<div id="page-container">
+   			<ng-include src="'tpl/header.tpl.html'"></ng-include>
+   			<div class="row">
+   				<div class="col-md-2 no-padding visible-md visible-lg" id="mmm-sidebar">
+   					<ng-include src="'tpl/sidebar.tpl.html'"></ng-include>
+   				</div>
+   				<div class="col-md-10 no-padding">
+   					<ng-view></ng-view>
+   				</div>
+   			</div>
+   			<div class="row">
+   				<ng-include src="'tpl/footer.tpl.html'"></ng-include>
+   			</div>
+   		</div>
+   	</body>
+</html>

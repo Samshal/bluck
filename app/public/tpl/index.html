@@ -1,0 +1,249 @@
+
+<script>
+    $('[data-toggle="countTo"]').each(function(){
+        var $this = $(this);
+
+        $this.appear(function() {
+            $this.countTo({
+                speed: 1500,
+                refreshInterval: 20,
+                onComplete: function() {
+                    if($this.data('after')) {
+                        $this.html($this.html() + $this.data('after'));
+                    }
+                }
+            });
+        });
+    });
+
+    $(function() {
+        $(".knob").knob({
+            draw : function () {
+                // "tron" case
+                if(this.$.data('skin') == 'tron') {
+
+                    var a = this.angle(this.cv)  // Angle
+                        , sa = this.startAngle          // Previous start angle
+                        , sat = this.startAngle         // Start angle
+                        , ea                            // Previous end angle
+                        , eat = sat + a                 // End angle
+                        , r = true;
+
+                    this.g.lineWidth = this.lineWidth;
+
+                    this.o.cursor
+                        && (sat = eat - 0.3)
+                        && (eat = eat + 0.3);
+
+                    if (this.o.displayPrevious) {
+                        ea = this.startAngle + this.angle(this.value);
+                        this.o.cursor
+                            && (sa = ea + 0.3)
+                            && (ea = ea - 0.3);
+                        this.g.beginPath();
+                        this.g.strokeStyle = this.previousColor;
+                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false);
+                        this.g.stroke();
+                    }
+
+                    this.g.beginPath();
+                    this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
+                    this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false);
+                    this.g.stroke();
+
+                    this.g.lineWidth = 2;
+                    this.g.beginPath();
+                    this.g.strokeStyle = this.o.fgColor;
+                    this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+                    this.g.stroke();
+
+                    return false;
+                }
+            }
+        });
+
+
+        var v, up=0,down=0,i=0
+            ,$idir = $("div.idir")
+            ,$ival = $("div.ival")
+            ,incr = function() { i++; $idir.show().html("+").fadeOut(); $ival.html(i); }
+            ,decr = function() { i--; $idir.show().html("-").fadeOut(); $ival.html(i); };
+        $("input.infinite").knob({
+            min : 0
+            , max : 20
+            , stopper : false
+            , change : function () {
+                if(v > this.cv){
+                    if(up){
+                        decr();
+                        up=0;
+                    }else{up=1;down=0;}
+                } else {
+                    if(v < this.cv){
+                        if(down){
+                            incr();
+                            down=0;
+                        }else{down=1;up=0;}
+                    }
+                }
+                v = this.cv;
+            }
+        });
+    });
+
+
+    $(".count-down").ccountdown(2017,02,13,'00:00');
+</script>
+
+<div id="_" class="carousel carousel-home slide" data-ride="carousel" data-interval="5000">
+    <div class="carousel-inner">
+        <div class="active item">
+            <section class="site-section site-section-light site-section-top themed-background-default">
+                <div class="container">
+                    <h1 class="text-center animation-slideDown"><strong>Okay Guys, Here we are</strong></h1>
+                    <h2 class="text-center animation-slideUp push">I thought a carousel might give us a modern touch and create that psychological "slidey" effect of "believe us, we are the experts here" . Lemme know what you think.</h2>
+                </div>
+            </section>
+        </div>
+        <div class="item">
+            <section class="site-section site-section-light site-section-top themed-background-fire">
+                <div class="container">
+                    <h1 class="text-center animation-fadeIn360"><strong>We need info here guys, info!</strong></h1>
+                    <h2 class="text-center animation-fadeIn360 push">Please come up with whatever we should put in here and I'd be happy to modify this content</h2>
+                </div>
+            </section>
+        </div>
+        <div class="item">
+            <section class="site-section site-section-light site-section-top themed-background-amethyst">
+                <div class="container">
+                    <h1 class="text-center animation-hatch"><strong>Should i make it customizable from the admin dashboard?</strong></h1>
+                    <h2 class="text-center animation-hatch push">I mean this carousel, should we be able to change this content at anytime?</h2>
+                </div>
+            </section>
+        </div>
+        <div class="item">
+            <section class="site-section site-section-light site-section-top themed-background-modern">
+                <div class="container">
+                    <h1 class="text-center animation-fadeInLeft"><strong>Pius: Did you know</strong></h1>
+                    <h2 class="text-center animation-fadeInRight push">Putting an image in here may look really good? I dunno, but lets try it, what do you think?</h2>
+                </div>
+            </section>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#_" data-slide="prev">
+        <span>
+            <i class="fa fa-chevron-left"></i>
+        </span>
+    </a>
+    <a class="right carousel-control" href="#_" data-slide="next">
+        <span>
+            <i class="fa fa-chevron-right"></i>
+        </span>
+    </a>
+</div>
+
+<section class="site-section site-content fade-down">
+    <div class="col-md-12">
+        <ul class="row count-down">                       
+            <li class="col-md-3 col-sm-6">   
+                <input class="knob days" data-readonly=true data-min="0" data-max="365" data-width="260" data-height="260" data-thickness="0.07" data-fgcolor="#34aadc" data-bgColor="#e1e2e6" data-angleOffset="180">
+                <span id="days-title">days</span>
+            </li>    
+            <li class="col-md-3 col-sm-6"> 
+                <input class="knob hour" data-readonly=true data-min="0" data-max="24" data-width="260" data-height="260" data-thickness="0.07" data-fgcolor="#4cd964" data-bgColor="#e1e2e6" data-angleOffset="180">
+                <span id="hours-title">hours</span>
+            </li>    
+            <li class="col-md-3 col-sm-6"> 
+                <input class="knob minute" data-readonly=true data-min="0" data-max="60" data-width="260" data-height="260" data-thickness="0.07" data-fgcolor="#ff9500" data-bgColor="#e1e2e6" data-angleOffset="180">
+                <span id="mins-title">minutes</span>
+            </li>    
+            <li class="col-md-3 col-sm-6"> 
+                <input class="knob second" data-readonly=true data-min="0" data-max="60" data-width="260" data-height="260" data-thickness="0.07" data-fgcolor="#ff3b30" data-bgColor="#e1e2e6" data-angleOffset="180">
+                <span id="secs-title">seconds</span>
+            </li>                
+        </ul>
+        <h1 class="text-center">... Before the grand launch!</h1>     
+    </div>         
+</section>
+
+<section class="site-content site-section">
+    <div class="container">
+        <div class="site-block text-center">
+            <a href="#" class="btn btn-lg btn-success"> Register Now, to get a fair share of the national cake</a>
+        </div>
+        <hr>
+    </div>
+</section>
+
+<section class="site-content site-section">
+    <div class="container">
+        <div id="testimonials-carousel" class="carousel slide carousel-html" data-ride="carousel" data-interval="4000">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#testimonials-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#testimonials-carousel" data-slide-to="1"></li>
+                <li data-target="#testimonials-carousel" data-slide-to="2"></li>
+            </ol>
+            <!-- END Indicators -->
+            <div class="carousel-inner text-center">
+                <div class="active item">
+                    <p>
+                        <img src="assets/img/image.jpg" alt="Avatar" class="img-circle" width="50" height="50">
+                    </p>
+                    <blockquote class="no-symbol">
+                        <p>Be the first to share an experience</p>
+                        <footer><strong>Bluck CRO</strong>, mmmflorida.com</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sign Up Action -->
+<section class="site-content site-section site-section-light themed-background-dark-night">
+    <div class="container">
+        <h3 class="site-heading text-center"><strong>Sign Up For Our Newsletter, Today</strong> and receive <strong>the hottest and greatest info in your inbox</strong>!</h3>
+        <div class="site-block text-center">
+            <form action="features.html" method="post" class="form-horizontal" onsubmit="return false;">
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-3">
+                        <label class="sr-only" for="register-email">Your Email</label>
+                        <div class="input-group input-group-lg">
+                            <input type="email" id="register-email" name="register-email" class="form-control" placeholder="Your Email..">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="site-content site-section themed-background">
+    <div class="container">
+        <!-- CountTo (initialized in js/app.js), for more examples you can check out https://github.com/mhuggins/jquery-countTo -->
+        <div class="row" id="counters">
+            <div class="col-sm-4">
+                <div class="counter site-block">
+                    <span data-toggle="countTo" data-to="30" data-after="%"></span>
+                    <small>In 9 Days</small>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="counter site-block">
+                    <span data-toggle="countTo" data-to="5000" data-after="+"></span>
+                    <small>Happy Members</small>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="counter site-block">
+                    <span data-toggle="countTo" data-to="1200" data-after="+"></span>
+                    <small>Active PH Charity</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
