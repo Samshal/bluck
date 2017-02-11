@@ -1,0 +1,100 @@
+<script>
+  $('[data-init-plugin="select2"]').select2();
+</script>
+<link class="main-stylesheet" href="assets/css/pages/login.min.css" rel="stylesheet" type="text/css" />
+<div class="login-wrapper bg-white">
+  <div class="bg-pic">
+    <img src="assets/img/register-bg.jpg" data-src="assets/img/register-bg.jpg" data-src-retina="assets/img/register-bg.jpg" alt="" class="lazy">
+    <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
+      <h2 class="semi-bold text-white">Welcome, We have a nice awesome message for you in this heading</h2>
+      <p class="small">
+        We exist to make sure your money grows. Like we agreed, we need an orator to orate out this part of the design and also, this background image needs some photoshopping.<br/> &copy; mmmflorida.com
+      </p>
+    </div>
+  </div>
+  <div class="login-container bg-white">
+    <div class="p-l-10 m-l-10 p-r-10 m-r-10 p-t-10 m-t-10 sm-p-l-10 sm-p-r-10 sm-p-t-10">
+      <h1 class="text-center"><strong>MMM</strong>Florida</h1>
+        <h3>Membership Registration</h3>
+          <p>
+            <small>Fill in this form to register or ask your manager to help you. <a href="#" class="text-link">Learn more</a></small>
+          </p>
+        <form id="form-register" class="p-t-15" role="form" action="/register" method="post">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group form-group-default">
+                <label>Name</label>
+                <input type="text" name="fname" placeholder="You can use your nick here" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group form-group-default">
+                <label>Referrer</label>
+                <input type="text" name="lname" placeholder="Enter your referrer's code here" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group form-group-default">
+                <label>Email Address</label>
+                <input type="text" name="uname" placeholder="yourname@yourdomain.tld" class="form-control" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group form-group-default">
+                <label>Mobile Number</label>
+                <input type="password" name="pass" placeholder="Enter your mobile no. here" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group form-group-default">
+                <label>Password</label>
+                <input type="password" name="fname" placeholder="Enter your preferred password here" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group form-group-default">
+                <label>Confirm Password</label>
+                <input type="password" name="lname" placeholder="Enter your password again" class="form-control" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group form-group-default">
+                <label>Country</label>
+                <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                  <option value="Nigeria">Nigeria</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group form-group-default">
+                <label>City</label>
+                <select class="full-width" data-placeholder="Select City" data-init-plugin="select2">
+                  <option value="Kaduna">Kaduna</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row m-t-10">
+            <div class="col-md-6">
+              <div class="checkbox m-l-15 m-t-15">
+                <input type="checkbox" value="1" id="checkbox1">
+                <label for="checkbox1">I agree to the <a href="#" class="text-link small"> TOS</a> and <a href="#" class="text-link small"> Privacy policy</a> </label>
+              </div>
+            </div>
+            <div class="col-md-6 text-right">
+              <a href="#" class="text-info small">Help? Contact Support</a>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-cons m-t-10" type="submit">Create a new account</button>
+        </form>
+    </div>
+  </div>
+</div>

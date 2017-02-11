@@ -5,6 +5,12 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 	.when('/', {
 		templateUrl: 'pages/dashboard.html'
 	})
+	.when('/login', {
+		templateUrl: 'pages/auth/login.html'
+	})
+	.when('/register', {
+		templateUrl: 'pages/auth/register.html'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});
@@ -13,5 +19,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 }]);
 
 app.controller("coreController", ['$scope', function($scope){
-	$scope.message = "Hello World";
+	$scope.thispage = {};
+
+	$scope.thispage.isAuthPage = true;
 }])

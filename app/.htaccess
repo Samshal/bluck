@@ -1,0 +1,7 @@
+#
+RewriteEngine On
+RewriteBase /public
+
+# redirect to public-directory and hide the /public in the URL
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule !^public(/?|/.+)$ /public%{REQUEST_URI} [L]
