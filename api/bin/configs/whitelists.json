@@ -1,0 +1,25 @@
+{
+	"POST":[
+		"create",
+		"new",
+		"login"
+	],
+	"GET":[
+		"view",
+		"select",
+		"search",
+		"get-image",
+		"view-permission",
+		"view-by-department"
+	],
+	"PUT":[
+		"edit",
+		"update",
+		"set-permission",
+		"set-inheritance"
+	],
+	"DELETE":[
+		"delete",
+		"remove"
+	]
+}

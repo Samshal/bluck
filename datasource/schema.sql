@@ -45,12 +45,25 @@ CREATE TABLE memberprofile_membertypes (
 );
 
 --
+-- Table structure for table `memberprofile_registration`
+--
+CREATE TABLE memberprofile_registration (
+	reg_id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	reg_data TEXT,
+	reg_code VARCHAR(255) UNIQUE,
+	date_created DATETIME
+);
+
+--
 -- Table structure for table `memberprofile_members`
 --
 CREATE TABLE memberprofile_members (
 	member_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	member_type TINYINT UNSIGNED NOT NULL,
 	join_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	member_referrer INT UNSIGNED,
+	member_email VARCHAR(50) NOT NULL,
+	member_password VARBINARY(255) NOT NULL,
 	last_modified DATE,
 	FOREIGN KEY (member_type) REFERENCES memberprofile_membertypes(type_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );

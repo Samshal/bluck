@@ -1,0 +1,8 @@
+{
+	"adapter":"MySQL",
+	"server":"localhost",
+	"database":"bluck",
+	"username":"root",
+	"password":"root",
+	"showError":true
+}
