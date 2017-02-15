@@ -20,8 +20,11 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 	.when('/docs/ideology', {
 		templateUrl: 'tpl/docs/ideology.html'
 	})
-	.when('/docs/charity', {
-		templateUrl: 'tpl/docs/charity.html'
+	.when('/docs/ideology', {
+		templateUrl: 'tpl/docs/ideology.html'
+	})
+    .when('/docs/how-to-begin', {
+		templateUrl: 'tpl/docs/howtobegin.html'
 	})
 	.when('/testimonials', {
 		templateUrl: 'tpl/docs/testimonials.html'
